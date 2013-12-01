@@ -1,0 +1,43 @@
+﻿<div data-options="dxView : { name: 'settings', title: 'Settings' } ">
+    <div class="settings-view" data-options="dxContent : { targetPlaceholder: 'content' } ">
+		<div data-bind="dxScrollView: {}">
+			<div class="dx-fieldset">
+				<div class="dx-field">    
+					<div class="dx-field-label">Name</div>    
+					<div class="dx-field-value" data-bind="dxTextBox: { value: name, maxLength: 100, placeholder: nameDescription }"></div>  
+				</div>
+				<div class="dx-field">    
+					<div class="dx-field-label">E-mail</div>    
+					<div class="dx-field-value" data-bind="dxTextBox: { value: email, mode: 'email', maxLength: 100, placeholder: emailDescription }"></div>  
+				</div>
+				<div class="dx-field">    
+					<div class="dx-field-label">Password</div>    
+					<div class="dx-field-value" data-bind="dxTextBox: { value: password, mode: 'password', maxLength: 100, placeholder: passwordDescription }"></div>  
+				</div>
+				<div class="dx-field">    
+					<div class="dx-field-label">Gender</div>    
+					<div class="dx-field-value" data-bind="dxLookup: { value: gender, dataSource: ['Female', 'Male'], searchEnabled: false }"></div>  
+				</div>
+				<div class="dx-field">    
+					<div class="dx-field-label">Age</div>    
+					<div class="dx-field-value" data-bind="dxNumberBox: { value: age, min: 1, max: 100 }"></div>  
+				</div>
+			</div>
+			<div class="dx-fieldset">
+				<div class="dx-field">    
+					<div class="dx-field-label">Reminders</div>    
+					<div class="dx-field-value" data-bind="dxSwitch: { value: reminderOn }"></div>  
+				</div>
+				<div class="dx-field">    
+					<div class="dx-field-label">Reminder Time</div>
+					<div class="dx-field-value" data-bind="dxRangeSlider: { min: 0, max: 24, start: reminderFrom, end: reminderTo }"></div>
+					<div class="dx-field-value"><span data-bind="text: reminderFrom"></span>h - <span data-bind="text: reminderTo"></span>h</div>
+				</div>
+				<div class="dx-field">    
+					<div class="dx-field-label">Reminder frequency</div>    
+					<div class="dx-field-value" data-bind="dxLookup: { value: reminderFrequency, dataSource: ['Every 30min', 'Every hour', 'Every second hour'], searchEnabled: false }"></div>  
+				</div>
+			</div>
+		</div>
+    </div>
+</div>

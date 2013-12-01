@@ -1,0 +1,62 @@
+﻿/* Put css styles for home view here */
+
+.counter .label {
+	width: 80px;
+	display: block;
+	float: left;
+}
+.counter .unit {
+	position: relative;
+	font-size: 10px;
+	top: -5px;
+}
+
+.home-graph {
+	height: 200px;
+}
+
+.today {
+	display: table;
+	width: 100%;
+}
+
+.today .addButton, .today .todayStats {
+	height: 155px;
+	display: table-cell;
+	vertical-align: middle;
+	width: 50%;
+	box-sizing: border-box;
+}
+.addButton {
+	text-align: center;
+}
+.addButton > div {
+	box-sizing: border-box;
+}
+.addButton .dx-button .dx-icon {
+	width: 92px;
+	height: 92px;
+}
+
+.todayStats {
+	padding: 30px;
+}
+
+.overlayContents{
+  padding: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+}
+.dx-theme-ios .overlayContents{
+  border-color:#43628D;
+  background-color:#F7F7F7;
+}
+.dx-theme-android .overlayContents{
+  border-color:#FFFFFF;
+  background-color:#5F5F5F;
+}
+.dx-theme-win8 .overlayContents{
+  border-color: #E4E4E4;
+  background-color:#333333;
+}

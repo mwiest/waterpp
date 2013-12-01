@@ -1,0 +1,79 @@
+﻿<div data-options="dxView : { name: 'home', title: 'Home' } " >
+    <div class="home-view"  data-options="dxContent : { targetPlaceholder: 'content' } " >
+		<div data-bind="dxScrollView: {bounceEnabled: false}">
+			<div class="text-area">
+				<h1>Welcome to Water++</h1>
+				<h2>Today:</h2>
+				<div class="today">
+					<div class="addButton">
+						<div data-bind="dxButton: {iconSrc: 'views/plusButton.png', width: '100px', height: '100px', clickAction: addConsumption}"></div>
+					</div>
+					<div class="todayStats">
+						<div class="counter upper">
+							<span class="label">Count:</span>
+							<span data-bind="text: dailyStats.count.value"></span>
+							<span class="unit" data-bind="text: dailyStats.count.unit"></span>
+						</div>
+						<hr>
+						<div class="counter upper">
+							<span class="label">Amount:</span>
+							<span data-bind="numericText: dailyStats.amount.value"></span>
+							<span class="unit" data-bind="text: dailyStats.amount.unit"></span>
+						</div>
+						<hr>
+						<div class="counter upper">
+							<span class="label">Goal:</span>
+							<span data-bind="numericText: dailyStats.goal.value, precision: 0"></span>
+							<span class="unit" data-bind="text: dailyStats.goal.unit"></span>
+						</div>
+						<hr>
+						<div class="counter upper">
+							<span class="label">Quota:</span>
+							<span data-bind="numericText: dailyStats.percent.value, precision: 0"></span>
+							<span class="unit" data-bind="text: dailyStats.percent.unit"></span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="graph-area" data-bind="if: hasData">
+					<h2>Quick Statistics:</h2>
+					<div class="gallery" data-bind="dxGallery: { dataSource: multiChartData, height: 250 }">
+					  <div data-options="dxTemplate: { name: 'item' }">
+						<!-- ko if: chartOptions.argumentAxis -->
+						<div class="home-graph" data-bind="dxChart: chartOptions"></div>
+						<!-- /ko -->
+						<!-- ko if: !chartOptions.argumentAxis -->
+						<div class="home-graph" data-bind="dxPieChart: chartOptions"></div>
+						<!-- /ko -->
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div data-bind="dxOverlay: {visible: overlayVisible, width: '300px'}">
+			<div class="overlayContents">
+				<div class="dx-fieldset">
+					<div class="dx-field">
+						<h3>New empty glass</h3>
+					</div>
+					<div class="dx-field">
+						<div class="dx-field-label">When</div>
+						<div class="dx-field-value" data-bind="dxDateBox: { value: glassDate, format: 'datetime' }"></div>  
+					</div>
+					<div class="dx-field">
+						<div class="dx-field-label">Size</div>
+						<div class="dx-field-value" data-bind="dxLookup: { value: glassSize, dataSource: glassSizes, displayExpr: 'name', valueExpr: 'value', searchEnabled: false }"></div>  
+					</div>
+					<div class="dx-field">
+						<div class="dx-field-label">Beverage</div>
+						<div class="dx-field-value" data-bind="dxLookup: { value: glassType, dataSource: glassTypes, displayExpr: 'name', valueExpr: 'value', searchEnabled: false }"></div>  
+					</div>
+				</div>
+				<div>
+					<div data-bind="dxButton: {text: 'Add', width: '45%', clickAction: addConsumptionDone}"></div>
+					<div data-bind="dxButton: {text: 'Cancel', width: '45%', clickAction: addConsumptionCancel}"></div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>

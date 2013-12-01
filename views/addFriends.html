@@ -1,0 +1,11 @@
+﻿<div data-options="dxView : { name: 'addFriends', title: 'Add a Friend' } ">
+    <div class="stats-view" data-options="dxContent : { targetPlaceholder: 'content' } ">
+		<div class="dx-Fieldset">
+			<div data-bind="dxList: {dataSource: allFriends, itemClickAction: addFriend}">
+				<div data-options="dxTemplate: { name: 'item' }">
+					<span data-bind="text: name"></span>
+				</div>   
+			</div>
+		</div>
+    </div>
+</div>

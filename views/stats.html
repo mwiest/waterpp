@@ -1,0 +1,44 @@
+﻿<div data-options="dxView : { name: 'stats', title: 'Statistics' } ">
+    <div class="stats-view" data-options="dxContent : { targetPlaceholder: 'content' } ">
+		<div data-bind="dxScrollView: {bounceEnabled: false}">
+			<div class="text-area">
+				<h1>Connect with your Friends</h1>
+				<p>Match with your mates and figure out how you are doing compared to them.</p>
+				<!-- ko if: !friends().length -->
+					<p>Simply add friends from your phone book, that already use Water++ to get going.</p>
+				<!-- /ko -->
+				
+				<h2>Friends:</h2>
+				<div class="dx-fieldset first-fieldset">
+					<div data-bind="dxList: { items: ['Add a Friend'], itemRender: renderAdd, itemClickAction: addFriend}"></div>
+					<!-- ko if: friends().length -->
+					<div data-bind="dxList: { dataSource: friends }">
+						<div data-options="dxTemplate : { name: 'item' }">
+							<div class="list-item-title">
+								<span data-bind="text: $data"></span>
+							</div>
+							<div data-bind="dxButton: { icon: 'remove', clickAction: $root.delFriend }"></div>
+						</div>
+					</div>
+					<!-- /ko -->
+				</div>
+				
+				<!-- ko if: friends().length -->
+				<div class="graph-area">
+					<h2>Compare:</h2>
+					<div class="gallery" data-bind="dxGallery: { dataSource: multiChartData, height: 250 }">
+					  <div data-options="dxTemplate: { name: 'item' }">
+						<!-- ko if: chartOptions.argumentAxis -->
+						<div class="home-graph" data-bind="dxChart: chartOptions"></div>
+						<!-- /ko -->
+						<!-- ko if: !chartOptions.argumentAxis -->
+						<div class="home-graph" data-bind="dxPieChart: chartOptions"></div>
+						<!-- /ko -->
+					  </div>
+					</div>
+				</div>
+				<!-- /ko -->
+			</div>
+		</div>
+    </div>
+</div>

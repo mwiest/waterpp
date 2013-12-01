@@ -1,0 +1,31 @@
+﻿<div data-options="dxView : { name: 'registration', layout: 'empty' } ">
+    <div class="registration-view" data-options="dxContent : { targetPlaceholder: 'content' } ">
+		<div data-bind="dxTabs: {dataSource: tabs, itemClickAction: tabSelected, selectedIndex: selectedIndex}"></div>
+		<center style="margin: 30px;">
+			<p><img src="views/startup.png" alt="Water++"></p>
+			<h1>WATER++</h1>
+			<p style="font-size:small; margin:1em;">Improve your water consumption for a healthier life.</p>
+		</center>
+		<div class="dx-fieldset">
+			<div class="dx-field regField">    
+				<div class="dx-field-label">Name</div>    
+				<div class="dx-field-value" data-bind="dxTextBox: { value: name, maxLength: 100, placeholder: nameDescription }"></div>  
+			</div>
+			<div class="dx-field">    
+				<div class="dx-field-label">E-mail</div>    
+				<div class="dx-field-value" data-bind="dxTextBox: { value: email, mode: 'email', maxLength: 100, placeholder: emailDescription }"></div>  
+			</div>
+			<div class="dx-field">    
+				<div class="dx-field-label">Password</div>    
+				<div class="dx-field-value" data-bind="dxTextBox: { value: password, mode: 'password', maxLength: 100, placeholder: passwordDescription }"></div>  
+			</div>
+			<div class="dx-field regField">    
+				<div class="dx-field-label">Company</div>    
+				<div class="dx-field-value" data-bind="dxTextBox: { value: company, maxLength: 100, placeholder: companyDescription }"></div>  
+			</div>
+		</div>
+		<center style="margin: 6px;">
+			<div style="box-sizing:border-box;" data-bind="dxButton: {text: buttonText, width: '100%', clickAction: proceed}"></div>
+		</center>
+    </div>
+</div>

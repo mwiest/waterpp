@@ -1,0 +1,14 @@
+﻿/* Put css styles for home view here */
+.startup-view {
+	display: table;
+}
+
+.startup-view .startup-inner {
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.startup-inner > * {
+	margin: 10px;
+}
